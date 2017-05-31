@@ -45,9 +45,16 @@ class Header extends Component {
       </div>
     )
     const searchElem = this.state.showSearch ? searchBar : searchButton;
+    const title = (
+      <Link
+        to="/" className="link-reset"
+        title="niño! que hase viendo dibujito">
+        Dibujitos
+      </Link>
+    );
     return (
       <AppBar
-        title={<Link to="/" className="link-reset">Dibujitos</Link>}
+        title={title}
         showMenuIconButton={false}
         titleStyle={{
           textAlign: 'left'

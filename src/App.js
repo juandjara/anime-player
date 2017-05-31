@@ -11,7 +11,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Header></Header>
-          <h2 style={{textAlign: 'center'}}>Haber anime</h2>
+          <h2 style={{textAlign: 'center'}}>Tus capitulos de anime</h2>
           <Route exact path="/" component={LatestEpisodes} />
           <Route path="/search" component={SearchResults} ></Route>
         </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import {GridList, GridTile} from 'material-ui/GridList';
-import Subheader from 'material-ui/Subheader';
 import Media from 'react-media';
 
 const styles = {
@@ -23,7 +22,6 @@ const AnimeGridList = ({shows}) => {
           style={styles.gridList}
           cellHeight={200}
           cols={matches? 4 : 2}>
-          <Subheader>Ultimos episodios</Subheader>
           {shows.map((ep, i) => (
             <GridTile key={i} title={<span title={ep.name}>{ep.name}</span>}>
               <img src={ep.image} alt={ep.name} />

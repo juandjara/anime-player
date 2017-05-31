@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {api} from './config'
 import AnimeGridList from './AnimeGridList';
+import Subheader from 'material-ui/Subheader';
 import CircularProgress from 'material-ui/CircularProgress';
 import qs from 'query-string';
 
@@ -27,7 +28,10 @@ class SearchResults extends Component {
         size={100} thickness={8} color="tomato"
         style={{display: 'block', margin: '0 auto'}} />
     ) : (
-     <AnimeGridList shows={this.state.results} />
+      <div>
+        <Subheader>Resultados de la b&uacute;squeda</Subheader>
+        <AnimeGridList shows={this.state.results} />        
+      </div>
     )
   }
 }

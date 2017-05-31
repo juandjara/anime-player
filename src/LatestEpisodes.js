@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {api} from './config'
 import AnimeGridList from './AnimeGridList';
+import Subheader from 'material-ui/Subheader';
 import CircularProgress from 'material-ui/CircularProgress';
 
 class LatestEpisodes extends Component {
@@ -24,7 +25,10 @@ class LatestEpisodes extends Component {
         size={100} thickness={8} color="tomato"
         style={{display: 'block', margin: '0 auto'}} />
     ) : (
-     <AnimeGridList shows={this.state.latestEps} />
+      <div>
+        <Subheader>&Uacute;ltimos episodios</Subheader>
+        <AnimeGridList shows={this.state.latestEps} />
+      </div>
     )
   }
 }
