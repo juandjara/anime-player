@@ -1,6 +1,7 @@
 import React from 'react'
 import {GridList, GridTile} from 'material-ui/GridList';
 import Media from 'react-media';
+import { Link } from 'react-router-dom';
 
 const styles = {
   gridList: {
@@ -14,6 +15,10 @@ const styles = {
   }
 }
 
+function getShowSlug(epSlug) {
+  return epSlug.replace(/-episode-\d$/, '');
+}
+
 const AnimeGridList = ({shows}) => {
   return (
     <Media query="(min-width: 768px)">
@@ -23,12 +28,16 @@ const AnimeGridList = ({shows}) => {
           cellHeight={200}
           cols={matches? 4 : 2}>
           {shows.map((ep, i) => (
-            <GridTile 
+            <Link 
               key={i}
-              className="show-tile-hover"
-              title={<span title={ep.name}>{ep.name}</span>}>
-              <img src={ep.image} alt={ep.name} />
-            </GridTile>
+              to={`/show/${getShowSlug(ep.slug)}`}
+              className="link-reset">
+              <GridTile 
+                className="show-tile-hover"
+                title={<span title={ep.name}>{ep.name}</span>}>
+                <img src={ep.image} alt={ep.name} />
+              </GridTile>
+            </Link>
           ))}        
         </GridList>
       )}
