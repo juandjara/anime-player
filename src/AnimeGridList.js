@@ -23,7 +23,10 @@ const AnimeGridList = ({shows}) => {
           cellHeight={200}
           cols={matches? 4 : 2}>
           {shows.map((ep, i) => (
-            <GridTile key={i} title={<span title={ep.name}>{ep.name}</span>}>
+            <GridTile 
+              key={i}
+              className="show-tile-hover"
+              title={<span title={ep.name}>{ep.name}</span>}>
               <img src={ep.image} alt={ep.name} />
             </GridTile>
           ))}        
