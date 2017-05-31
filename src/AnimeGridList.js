@@ -7,7 +7,7 @@ const styles = {
   gridList: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around'
+    justifyContent: 'center'
   },
   subheader: {
     fontSize: '1em',
@@ -25,8 +25,8 @@ const AnimeGridList = ({shows}) => {
           cols={matches? 4 : 2}>
           <Subheader>Ultimos episodios</Subheader>
           {shows.map((ep, i) => (
-            <GridTile key={i} title={ep.title}>
-              <img src={ep.image} alt={ep.title} />
+            <GridTile key={i} title={<span title={ep.name}>{ep.name}</span>}>
+              <img src={ep.image} alt={ep.name} />
             </GridTile>
           ))}        
         </GridList>

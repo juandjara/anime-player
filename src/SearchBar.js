@@ -30,6 +30,7 @@ class SearchBar extends Component {
           margin: 'auto 16px'
         }} onSubmit={this.handleSubmit}>
           <TextField
+            autoFocus
             value={this.state.query}
             onChange={this.handleChange}
             hintText={placeholder}

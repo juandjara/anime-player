@@ -3,15 +3,19 @@ import AppBar from 'material-ui/AppBar';
 import SearchBar from './SearchBar';
 import IconButton from 'material-ui/IconButton';
 import Icon from './Icon'
+import { withRouter, Link } from 'react-router-dom'
 
 class Header extends Component {
   state = {
     showSearch: false
   }
-  toggleSearch() {
+  toggleSearchBar() {
     this.setState(state => ({
       showSearch: !state.showSearch
     }))
+  }
+  handleSearch = (query) => {
+    this.props.history.push(`/search?q=${query}`)
   }
   render () {
     const searchIcon = (
@@ -21,7 +25,7 @@ class Header extends Component {
       }}>search</Icon>
     );
     const searchButton = (
-      <IconButton onTouchTap={() => this.toggleSearch()}>
+      <IconButton onTouchTap={() => this.toggleSearchBar()}>
         {searchIcon}
       </IconButton>
     );
@@ -31,19 +35,19 @@ class Header extends Component {
         justifyContent: 'flex-start',
         alignItems: 'center'
       }}>
-        <IconButton onTouchTap={() => this.toggleSearch()}>
+        <IconButton onTouchTap={() => this.toggleSearchBar()}>
           <Icon inverse>close</Icon>
         </IconButton>
         <SearchBar 
           style={{flex:1}}
           placeholder="Busca por nombre"
-          onSearch={query => console.log("SEARCH", query)} />
+          onSearch={this.handleSearch} />
       </div>
     )
     const searchElem = this.state.showSearch ? searchBar : searchButton;
     return (
       <AppBar
-        title="Dibujitos"
+        title={<Link to="/" className="link-reset">Dibujitos</Link>}
         showMenuIconButton={false}
         titleStyle={{
           textAlign: 'left'
@@ -54,4 +58,4 @@ class Header extends Component {
   }
 }
 
-export default Header
+export default withRouter(Header)
