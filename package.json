@@ -21,7 +21,7 @@
     "start": "react-scripts start",
     "copy": "cp build/index.html build/200.html",
     "build": "react-scripts build",
-    "deploy": "npm run copy && surge build anime.fuken.xyz && rm -rf build",
+    "deploy": "npm run copy && surge build dibujitos.fuken.xyz && rm -rf build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
