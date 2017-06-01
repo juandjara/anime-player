@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import CircularProgress from 'material-ui/CircularProgress';
+import {List, ListItem} from 'material-ui/List';
+import Icon from './Icon';
 import {api} from './config'
 
 class Show extends Component {
   state = {
     show: {
-      genres: []
+      genres: [],
+      episodes: []
     },
     loading: true
   }
@@ -36,17 +39,29 @@ class Show extends Component {
           margin: '0 auto'
         }}>
           <img className="show-image" src={show.image} alt=""/>
-          <div style={{flex: 1, minWidth: '400px'}}>
-            <h2 style={{margin: '1rem'}}>
+          <div style={{
+            flex: 1, 
+            minWidth: '400px',
+            margin: '0 1em'
+          }}>
+            <h2 style={{margin: '1rem 0'}}>
               {show.name}
               <br/>
               <small style={{fontSize: '12px'}}>
                 {show.genres.join(', ')}
               </small>              
             </h2>
-            <p style={{margin: '1em'}}>
+            <p>
               {show.summary}
             </p>
+            <List>
+              {show.episodes.map((_, i) => (
+                <ListItem 
+                  key={i} 
+                  primaryText={`Capítulo ${i+1}`}
+                  leftIcon={<Icon>play_circle_outline</Icon>} />
+              ))}
+            </List>
           </div>
         </main>
       </div>
