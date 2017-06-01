@@ -26,6 +26,7 @@ class LatestEpisodes extends Component {
         style={{display: 'block', margin: '0 auto'}} />
     ) : (
       <div>
+        <h2 style={{textAlign: 'center'}} >El streaming de Anime</h2>
         <Subheader>&Uacute;ltimos episodios actualizados</Subheader>
         <AnimeGridList shows={this.state.latestEps} />
       </div>

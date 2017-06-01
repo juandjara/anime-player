@@ -56,7 +56,6 @@ class Header extends Component {
       <AppBar
         title={title}
         showMenuIconButton={false}
-        titleStyle={{ textAlign: 'left' }}
         style={{ marginBottom: '2em' }}
         iconElementRight={searchElem}
       />
