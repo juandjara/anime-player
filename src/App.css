@@ -1,3 +1,4 @@
+/* home and search */
 .show-tile-hover:hover {
   z-index: 10;
   transform: scale(1.03);
@@ -5,11 +6,38 @@
   box-shadow: 1px 2px 2px rgba(0,0,0, 0.5);
   transition: transform 0.5s ease;
 }
-@media(max-width: 630px) {
+
+/* show detail */
+.show-image {
+  height: 430px;
+}
+.show-container {
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+@media(max-width: 900px) {
+  .show-container {
+    display: block;
+  }
   .show-image {
+    display: block;
     margin: 0 auto;
   }
 }
-.show-image {
-  height: 430px;
+.episode-list {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #f7f7f7;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  box-shadow: 1px 1px 3px 0 rgba(0,0,0, 0.5);
+}
+.selected-episode-container {
+  padding: 1em;
+}
+.selected-episode-header {
+  display: flex;
+  align-items: center;
 }
