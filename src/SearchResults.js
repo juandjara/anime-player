@@ -10,7 +10,19 @@ class SearchResults extends Component {
     results: [],
     loading: true
   }
+  
   componentDidMount () {
+    this.fetchResults();
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if(this.props.location.search !== nextProps.location.search) {
+      this.fetchResults();
+    }
+  }
+  
+  fetchResults () {
+    this.setState({ loading: true })
     const urlQuery = this.props.location.search;
     const params = qs.parse(urlQuery);
     fetch(`${api}/search?q=${params.q}`).then(res => res.json())
