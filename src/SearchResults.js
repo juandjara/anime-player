@@ -12,18 +12,18 @@ class SearchResults extends Component {
   }
   
   componentDidMount () {
-    this.fetchResults();
+    this.fetchResults(this.props);
   }
 
   componentWillReceiveProps (nextProps) {
     if(this.props.location.search !== nextProps.location.search) {
-      this.fetchResults();
+      this.fetchResults(nextProps);
     }
   }
   
-  fetchResults () {
+  fetchResults (props) {
     this.setState({ loading: true })
-    const urlQuery = this.props.location.search;
+    const urlQuery = props.location.search;
     const params = qs.parse(urlQuery);
     fetch(`${api}/search?q=${params.q}`).then(res => res.json())
     .then(json => {
