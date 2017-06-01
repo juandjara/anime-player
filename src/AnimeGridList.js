@@ -2,6 +2,7 @@ import React from 'react'
 import {GridList, GridTile} from 'material-ui/GridList';
 import Media from 'react-media';
 import { Link } from 'react-router-dom';
+import { Image } from 'material-ui-image'
 
 const styles = {
   gridList: {
@@ -12,6 +13,15 @@ const styles = {
   subheader: {
     fontSize: '1em',
     fontWeigth: 'bolder'
+  },
+  image: {
+    transform: 'translateY(-50%)',
+    position: 'relative',
+    left: 0,
+    top: '50%',
+    width: '100%',
+    minHeight: '200px',
+    height: 'auto'
   }
 }
 
@@ -35,7 +45,7 @@ const AnimeGridList = ({shows}) => {
               <GridTile 
                 className="show-tile-hover"
                 title={<span title={ep.name}>{ep.name}</span>}>
-                <img src={ep.image} alt={ep.name} />
+                <Image style={styles.image} src={ep.image} />
               </GridTile>
             </Link>
           ))}        
